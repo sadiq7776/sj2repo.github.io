@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+	 <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/fontawesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/fontawesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Noto+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light text-capitalize main-font-family">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img src="imgs\a5.png" class="img-fluid" style="width:150px;height:95px"/></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="show-menu">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            
+                        </li>
+									<div><a href="index.html" class="list-item" style="font-size:20px;color:black">HOME</a></div>
+							<li class="nav">
+							<a href="rooms.html" class="list"></a>
+							</li>
+							<div><a href="aboutus.html" class="list-item" style="font-size:20px;color:black">ABOUT</a></div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html"></a>
+                        </li>
+								<div><a href="gallery.html" class="list-item" style="font-size:20px;color:black">GALLERY</a></div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html"></a>
+                        </li>
+                        		<div><a href="rooms.html" class="list-item" style="font-size:20px;color:black">ROOMS</a></div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="rooms.html"></a>
+                        </li>
+								<div><a href="htr.html" class="list-item" style="font-size:20px;color:black">HOW-TO-REACH</a></div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="htr.html"></a>
+                        </li>
+							<div><a href="contct.html" class="list-item" style="font-size:20px;color:black">CONTACT</a></div>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        
+
+    <div class="container-fluid" style="background-color:red">
+        <div style="text-align:center">
+          <h2 style="font-family:monteserrat">Get in touch</h2>
+          
+        </div>
+        <div class="row">
+          
+          <div class="column">
+            <form id="submit-form" action="thamk.html">
+              <label for="fname" style="font-family:monteserrat;" >First Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your name.." required data-validation-required-message="Please enter your name." >
+              <label for="lname"  style="font-family:monteserrat;" >Email</label>
+              <input type="text" id="lname" name="email" placeholder="Your last name.." required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
+              <label for="lname"  style="font-family:monteserrat;" >PHONE</label>
+              <input type="text" id="phone" name="phone" placeholder="Mobile.." required pattern="[6-9]{1}[0-9]{9}">
+              
+              
+              <input type="submit" value="Submit"  style="font-family:monteserrat;">
+            </form>
+          </div>
+          <div class="column">
+            <img src="imgs/a5.png" class="img-fluid" style="width:90%">
+          </div>
+        </div>
+      </div>
+      <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycby6_IoO4aX6_B7A7RIjUPfVBvLaivTmjAO-MsoC/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    window.location.href="thamk.html"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+	
+        
+        <div class="copyright noto-font-family">
+            <p>© 2020 All Rights Reserved. Design by <a href="https://html.design/">Hotel</a></p>
+        </div>
+        
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            $(function () {
+                
+                'use strict';
+                
+                var winH = $(window).height();
+                
+                $('header').height(winH);
+                
+                $('.navbar ul.navbar-nav li a').on('click', function (e) {
+                    
+                    var getAttr = $(this).attr('href');
+                    
+                    e.preventDefault();
+                    $('html').animate({scrollTop: $(getAttr).offset().top}, 1000);
+                });
+            });
+        </script>
+    </body>
+</html>
